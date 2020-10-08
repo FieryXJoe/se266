@@ -11,19 +11,12 @@
         "command": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
       },
       "args": [
-        "http://localhost/se266/${relativeFile}"
+        "http://localhost:81/se266/${relativeFile}"
       ],
       "presentation": {
         "echo": false,
         "reveal": "never",
         "panel": "dedicated"
       },
-	  {
-		"key": "ctrl+m",
-		"command": "workbench.action.tasks.runTask",
-		"args": "Open PHP Server"
-	  },
-      "problemMatcher": []
-    }
   ],
 }
