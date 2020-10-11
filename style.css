@@ -5,11 +5,34 @@ body{
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
 }
+#wrapper{
+    height:95vh;
+    width:95vw;
+    margin: 2.5vh 2.5vw;
+}
+h1{
+    text-align: center;
+}
+h3{
+    width: 10vw;
+    background-color: midnightblue;
+    border: 2px inset skyblue;
+    margin:auto;
+    border-radius: 20px;
+    text-align: center;
+}
 table{
     border: 2px solid black;
     font-weight: bold;
+    margin:auto;
 }
 td{
     border: 1px solid black;
     padding:5px;
+}
+footer{
+    clear: both;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
 }
