@@ -1,0 +1,15 @@
+body{
+    /*light text with black border can be read on all backgrounds*/
+    color:lightsteelblue;
+    font-size: 16px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+table{
+    border: 2px solid black;
+    font-weight: bold;
+}
+td{
+    border: 1px solid black;
+    padding:5px;
+}
