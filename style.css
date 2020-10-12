@@ -4,11 +4,26 @@ body{
     font-size: 16px;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
+    /*Trick from my HTML final to tint a background pattern*/
+    background-image: url(images/HomeBg.jpg);
+    box-shadow: 0 3000px rgba(100,30,60,0.45) inset;
 }
 #wrapper{
     height:95vh;
     width:95vw;
     margin: 2.5vh 2.5vw;
+}
+/*Desperately tried to make these look good.*/
+a{
+    -webkit-text-stroke-width: 0.25px;
+    -webkit-text-stroke-color: lightsteelblue;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;/*Autoreccomended backup fonts for impact, cool*/
+}
+a:visited{
+    color:blue;
 }
 h1{
     text-align: center;
@@ -20,19 +35,33 @@ h3{
     margin:auto;
     border-radius: 20px;
     text-align: center;
+    font-size: 24px;
 }
 table{
     border: 2px solid black;
     font-weight: bold;
     margin:auto;
+    background-image: url(images/HomeBg.jpg);
 }
 td{
     border: 1px solid black;
     padding:5px;
+    margin:4px;
+    background-image: url(images/HomeBg.jpg);
+    box-shadow: 0 3000px rgba(65, 3, 29, 0.651) inset;
+    
 }
 footer{
     clear: both;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: bold;
     text-align: right;
+}
+#hobbies{
+    font-size: 30px;
+}
+#gitImg{
+    border-radius: 30px;
+    margin: auto;
+    float: right;
 }
