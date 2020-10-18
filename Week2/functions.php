@@ -117,24 +117,34 @@
 
         if($flag)
         {
-            //TODO:: Clear form
             ?> 
                 <script type="text/javascript">
                     document.getElementById('inputForm').style.display = 'none';
                 </script>
             <?php
 
-            echo $fName . "<br />";
-            echo $lName . "<br />";
-            echo ($married == "no" ? "Not " : "") . "Married<br />";
-            echo $birthDate . "<br />";
-            echo $feet . "<br />";
-            echo $inches . "<br />";
-            echo $weight . "<br />";
+            echo "Name: " . $fName . " ";
+            echo $lName . "<br /><br />";
+            echo ($married == "no" ? "Not " : "") . "Married<br /><br />";
+
+            echo "Born: " . $birthDate . "<br /><br />";
+
+            echo "Height: ";
+            echo $feet . " Feet & ";
+            echo $inches . " Inches<br /><br />";
+
+            echo "Weight: " . $weight . " lb<br /><br />";
+            
+            $tempBMI = round(bmi($feet, $inches, $weight), 2);
+            echo "BMI: " . $tempBMI . " || Description: " . bmiDescription($tempBMI);
+
+            echo "<hr />Other Conditions: <br /><br />";
             
             if(isset($_POST["conditions"]))
                 foreach($_POST["conditions"] as $value)
                     echo $value . "<br />";
+            else
+                echo "None";
         }
         else
         {
