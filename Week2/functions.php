@@ -1,6 +1,6 @@
 <?php
     $fName = $lName = $highBP = $diabetes = $heartCondition = "";
-    $married = false;
+    $married =  false;
     $birthDate= null;
     $feet = $inches = $weight = -1;
 
@@ -62,7 +62,8 @@
     }
 
     /*
-
+        Processess and stores all vars, flag toggles to false if any required field is empty
+        All but conditions use temp variable for storing _POST data, 
     */
     function submitClick()
     {
@@ -89,10 +90,15 @@
         else
             $flag = false;
 
-        $highBP = $_POST["conditions"];["High Blood Pressure"];
-        $diabetes = $_POST["conditions"];["Diabetes"];
-        $heartCondition = $_POST["conditions"];["Heart Condition"];
-
+        /*
+            Removed this because it was counter productive, if heart condition only one selected it would store it in
+            highBP, doing a foreach on conditions array at output is far easier than storing them in vars
+        if(isset($_POST["conditions"]))
+        {
+            $highBP = $_POST["conditions"][0];
+            $diabetes = $_POST["conditions"][1];
+            $heartCondition = $_POST["conditions"][2];
+        }*/
         $temp = $_POST["ft"];
         if(isValidHeight($temp))
             $feet = $temp;
@@ -120,11 +126,15 @@
 
             echo $fName . "<br />";
             echo $lName . "<br />";
-            echo $married . "<br />";
+            echo ($married == false ? "Not " : "") . "Married<br />";
             echo $birthDate . "<br />";
             echo $feet . "<br />";
             echo $inches . "<br />";
             echo $weight . "<br />";
+            
+            if(isset($_POST["conditions"]))
+                foreach($_POST["conditions"] as $value)
+                    echo $value . "<br />";
         }
         else
         {

@@ -33,11 +33,11 @@
                 <label>Conditions:</label>
             </div>
             <div>
-                <input type="checkbox" name="conditions" value="High Blood Pressure">
+                <input type="checkbox" name="conditions[]" value="High Blood Pressure">
                     High Blood Pressure
-                <input type="checkbox" name="conditions" value="Diabetes">
+                <input type="checkbox" name="conditions[]" value="Diabetes">
                     Diabetes
-                <input type="checkbox" name="conditions" value="Heart Condition">
+                <input type="checkbox" name="conditions[]" value="Heart Condition">
                     Heart Condition
             </div>
             <div class="label">
