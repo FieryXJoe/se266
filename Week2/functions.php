@@ -64,6 +64,7 @@
     /*
         Processess and stores all vars, flag toggles to false if any required field is empty
         all use a temp variable to access _POST
+        If flag still true by end it clears form and displays results
     */
     function submitClick()
     {
@@ -127,7 +128,8 @@
             echo $lName . "<br /><br />";
             echo ($married == "no" ? "Not " : "") . "Married<br /><br />";
 
-            echo "Born: " . $birthDate . "<br /><br />";
+            echo "Born: " . $birthDate . "<br />";
+            echo age($birthDate) . " Years Old<br /><br />";
 
             echo "Height: ";
             echo $feet . " Feet & ";
