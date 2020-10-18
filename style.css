@@ -1,3 +1,10 @@
+html{
+    /*This was needed to get background to fill screen at all resolutions
+    otherwise it ended somewhere different in different window sizes
+    making it hard to design around, last time made it line up good at 1080p
+    now looks same at all res*/
+    height: 175%;
+}
 body{
     /*light text with black border can be read on all backgrounds*/
     color:lightsteelblue;
@@ -7,6 +14,8 @@ body{
     /*Trick from my HTML final to tint a background pattern*/
     background-image: url(images/HomeBg.jpg);
     box-shadow: 0 3000px rgba(100,30,60,0.45) inset;
+    
+    height:100%;
 }
 #wrapper{
     height:95vh;
@@ -42,6 +51,7 @@ table{
     font-weight: bold;
     margin:auto;
     background-image: url(images/HomeBg.jpg);
+    height:500px;
 }
 td{
     border: 1px solid black;
