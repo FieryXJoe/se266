@@ -1,6 +1,6 @@
 <?php
-    $fName = $lName = $highBP = $diabetes = $heartCondition = "";
-    $married =  false;
+    $fName = $lName = "";
+    $married = false;
     $birthDate= null;
     $feet = $inches = $weight = -1;
 
@@ -63,7 +63,7 @@
 
     /*
         Processess and stores all vars, flag toggles to false if any required field is empty
-        All but conditions use temp variable for storing _POST data, 
+        all use a temp variable to access _POST
     */
     function submitClick()
     {
@@ -126,7 +126,7 @@
 
             echo $fName . "<br />";
             echo $lName . "<br />";
-            echo ($married == false ? "Not " : "") . "Married<br />";
+            echo ($married == "no" ? "Not " : "") . "Married<br />";
             echo $birthDate . "<br />";
             echo $feet . "<br />";
             echo $inches . "<br />";
@@ -140,13 +140,4 @@
         {
             //TODO:: Dont change pages or something idk
         }
-    }
-    //checks if set and returns the response to the field
-    //Day2: May not even need this function at all
-    function getFormField($name)
-    {
-        if(isset($_POST[$name]))
-            return $_POST[$name];
-        else
-            return NULL;//TODO:: Figure out what to return here
     }
