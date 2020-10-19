@@ -69,9 +69,8 @@
     function submitClick()
     {
         $flag = true;
-
         $temp = $_POST["birth_date"];
-        if(isDate($temp))
+        if($_POST["birth_date"] != "" && isDate($temp))
             $birthDate = $temp;
         else
             $flag = false;
@@ -150,6 +149,6 @@
         }
         else
         {
-            //TODO:: Dont change pages or something idk
+            echo "There was an error with the information provided";
         }
     }
