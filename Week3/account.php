@@ -5,23 +5,23 @@
         protected $startDate;
         protected $balance;
 
-        function __construct($accountID, $startDate, $balance)
+        function __construct($accountID, $balance, $startDate)
         {
-            $this->$accountID = $accountID;
-            $this->$startDate = $startDate;
-            $this->$balance = $balance;
+            $this->accountID = $accountID;
+            $this->balance = $balance;
+            $this->startDate = $startDate;
         }
 
         function deposit($amount)
         {
-            $this->$balance += $amount; 
+            $this->balance += $amount; 
         }
         
-        abstract function withdraw($amount){}
+        abstract function withdraw($amount);
 
-        function getID(){return $this->$accountID;}
-        function getBal(){return $this->$balance;}
-        function getStartDay(){return $this->$startDate;}
+        function getID(){return $this->accountID;}
+        function getBal(){return $this->balance;}
+        function getStartDay(){return $this->startDate;}
 
         function getAccDetails()
         {
@@ -35,13 +35,13 @@
     
     class CheckingAccount extends Account
     {
-        function __construct($accountID, $startDate, $balance)
+        function __construct($accountID, $balance, $startDate)
         {
-            parent::__construct($accountID, $startDate, $balance);
+            parent::__construct($accountID, $balance, $startDate);
         }
         function withdraw($amount)
         {
-            $this->$balance -= $amount;
+            $this->balance -= $amount;
         }
         function getAccDetails()
         {
@@ -51,18 +51,18 @@
     
     class SavingsAccount extends Account
     {
-        function __construct($accountID, $startDate, $balance)
+        function __construct($accountID, $balance, $startDate)
         {
-            parent::__construct($accountID, $startDate, $balance)
+            parent::__construct($accountID, $balance, $startDate);
         }
         function withdraw($amount)
         {
-            if($this->$balance >= $amount)
-                $this->$balance -= $amount;
+            if($this->balance >= $amount)
+                $this->balance -= $amount;
         }
         function getAccDetails()
         {
-            return "Savings Account:" + parent::getAccDetails()
+            return "Savings Account:" + parent::getAccDetails();
         }
     }
 ?>
