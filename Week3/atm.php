@@ -16,8 +16,5 @@
         if(isset($_POST["savingDepositTxt"]) && $_POST["savingDepositTxt"] != "")
             $savingsAcc->deposit($_POST["savingDepositTxt"]);
     }
-
-    var_dump($checkingAcc);
-
     require 'atm.view.php';
     
