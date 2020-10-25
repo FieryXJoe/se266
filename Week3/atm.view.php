@@ -7,18 +7,19 @@
         }
         td{
             border:1px solid black;
-            padding:15px;
         }
         input{
             margin-bottom:10px;
             max-width:80px;
         }
-        ul{
-            margin-left:-25px;
-        }
+
     </style>
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body style="font-weight:bold;">
+<ul>
+        <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
+</ul>
     <h1>ATM</h1>
     <form method="post">
         <table id="accounts">
@@ -26,8 +27,11 @@
                 <td>
                     <h2>Checking Account</h2>
                     <ul>
+                        <br />
                         <li>Account ID: <?=$checkingAcc->getID();?></li>
+                        <br />
                         <li>Balance: $<?=number_format($checkingAcc->getBal() , 2);?></li>
+                        <br />
                         <li>Account Opened: <?=$checkingAcc->getStartDay();?></li>
                     </ul>
                         <input type="text" id="chckWithdrawTxt" name="chckWithdrawTxt">
@@ -39,8 +43,11 @@
                 <td>
                     <h2>Savings Account</h2>
                     <ul>
+                        <br />
                         <li>Account ID: <?=$savingsAcc->getID();?></li>
+                        <br />
                         <li>Balance: $<?=number_format($savingsAcc->getBal() , 2);?></li>
+                        <br />
                         <li>Account Opened: <?=$savingsAcc->getStartDay();?></li>
                     </ul>
                         <input type="text" id="savingWithdrawTxt" name="savingWithdrawTxt">

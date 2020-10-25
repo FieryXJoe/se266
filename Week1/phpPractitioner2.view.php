@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-<body>
-
+<head>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="font-weight:bold;">
+<ul>
+        <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
+</ul>
 <ul>
     <?php
         foreach($task as $key => $value)
-            echo '<li><strong>' . $key . "</strong> \t || \t" . $value . "</li>";
+            echo '<li style="margin:20px;"><strong>' . $key . "</strong> \t || \t" . $value . "</li>";
     ?> 
 </ul>
 
