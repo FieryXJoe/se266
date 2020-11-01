@@ -18,6 +18,7 @@
         "reveal": "never",
         "panel": "dedicated"
       },
-    },
+      "problemMatcher": []
+    }
   ],
 }

@@ -14,6 +14,7 @@
 <body style="font-weight:bold;">
 <ul>
         <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
+        <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
 </ul>
 <form name="patient" method="post" id="inputForm">
         <div class="wrapper">

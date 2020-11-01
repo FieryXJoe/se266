@@ -41,6 +41,7 @@
         }
         function withdraw($amount)
         {
+            if($this->balance >= $amount)
             $this->balance -= $amount;
         }
         function getAccDetails()
@@ -57,8 +58,7 @@
         }
         function withdraw($amount)
         {
-            if($this->balance >= $amount)
-                $this->balance -= $amount;
+            $this->balance -= $amount;
         }
         function getAccDetails()
         {
