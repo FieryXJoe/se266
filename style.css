@@ -85,7 +85,7 @@ footer{
 }
 #gitImg:hover
 {
-    border:8px inset purple;
+    border:8px inset rgb(119, 54, 119);
 }
 #name
 {
@@ -141,4 +141,36 @@ ul {
 }
 #otherWork h2{
     text-align:center;
+}
+#viewPatients table{
+    width:75%;
+    margin:auto;
+    margin-top:100px;
+}
+#viewPatients #addBtn{
+    background-color:lightgray;
+    border:2px solid grey;
+    margin-left:12.5vw;
+    padding:10px;
+    border-radius: 20px;
+}
+#viewPatients #addBtn:hover{
+    border:2px solid rgb(76, 119, 103);
+}
+#viewPatients tr{
+    min-height:60px;
+}
+#viewPatients td{
+    text-align: center;
+}
+#viewPatients th{
+    border:2px solid rosybrown;
+    font-weight: bolder;
+}
+#addPatient #viewPatientsBtn{
+    float:right;
+    background-color:lightgray;
+    border:2px solid grey;
+    padding:10px;
+    border-radius: 20px;
 }
