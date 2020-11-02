@@ -25,7 +25,10 @@ if (isPostRequest()) {
 </head>
 
 <body id="addPatient">
-
+    <ul>
+        <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
+        <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
+    </ul>
     <div class="container">
         <h2>Add Patients</h2>
         <form class="form-horizontal" action="addPatient.php" method="post">
