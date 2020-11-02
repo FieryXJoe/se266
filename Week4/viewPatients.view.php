@@ -2,7 +2,7 @@
 
 <?php
         
-        include __DIR__ . '\model\model_patients.php';
+        include __DIR__ . '/model/model_patients.php';
         include __DIR__ . '/functions.php';
         $patients = getPatients();
 ?>
