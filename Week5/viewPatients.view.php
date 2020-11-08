@@ -27,6 +27,7 @@
                     <th>Birthdate</th>
                     <th>Age</th>
                     <th>Married</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +39,7 @@
                         <td><?= $row['patientBirthDate'];?></td>
                         <td><?= calcAge($row['patientBirthDate'])->format("%y Years");?></td>
                         <td><?= $row['patientMarried']==1?"Yes":"No";?></td>
+                        <td><a class="editLink" href="addPatient.php?id=<?=$row['id']?>">Edit</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
