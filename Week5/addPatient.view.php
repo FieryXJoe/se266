@@ -68,6 +68,50 @@ if (isPostRequest()) {
                 </div>
             </div>
         </form>
+        <br />
+        <br />
+        <h2>Patient Measurements</h2>
+        <form class="form-horizontal" action="addPatient.php" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="height">Height:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="height" maxlength="6" placeholder="inches" name="height">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="weight">Weight:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="weight" maxlength="6" placeholder="Pounds" name="weight">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="systolicBP">Blood Pressure:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="systolicBP" maxlength="3" placeholder="mmHg" name="systolicBP">
+                </div>
+                <!--Was having way too many problems getting "/" to display in right place and its nonessential-->
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="diastolicBP" maxlength="3" placeholder="mmHg" name="diastolicBP">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="temp">Temperature:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="temp" maxlength="6" placeholder="Farenheit" name="temp">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add Measurements</button>
+                    <?php
+                    if (isPostRequest()) {
+                        echo "Patient added";
+                    }
+                    ?>
+                </div>
+            </div>
+        </form>
+        <hr />
 
         <div class="col-sm-offset-2 col-sm-10"><a href="./viewPatients.php" id="viewPatientsBtn">View Patients</a></div>
     </div>
