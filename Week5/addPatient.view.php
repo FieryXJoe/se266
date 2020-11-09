@@ -40,9 +40,10 @@ if(isset($_POST['action'])){
         else if($action == "edit")
         {
             $id = filter_input(INPUT_POST, 'id');
+
             if(isset($_POST['btnDelete']))
                 $results = deletePatient($id);
-            else 
+            else if(isset($_POST['btnSubmit']))
                 $results = updatePatient($id, $fName, $lName, $married, $bDay);
         }
     }
@@ -50,16 +51,27 @@ if(isset($_POST['action'])){
     {
         if($action == "edit")
         {
-            $id = filter_input(INPUT_POST, 'id');
-            $weight = filter_input(INPUT_POST, 'weight');
-            $height = filter_input(INPUT_POST, 'height');
-            $systolicBP = filter_input(INPUT_POST, 'systolicBP');
-            $diastolicBP = filter_input(INPUT_POST, 'diastolicBP');
-            $temp = filter_input(INPUT_POST, 'temp');
-            $results = addResults($id, $weight, $height, $systolicBP, $diastolicBP, $temp);
+            if(isset($_POST['btnAddMeasure']))
+            {
+                $id = filter_input(INPUT_POST, 'id');
+                $weight = filter_input(INPUT_POST, 'weight');
+                $height = filter_input(INPUT_POST, 'height');
+                $systolicBP = filter_input(INPUT_POST, 'systolicBP');
+                $diastolicBP = filter_input(INPUT_POST, 'diastolicBP');
+                $temp = filter_input(INPUT_POST, 'temp');
+                $results = addResults($id, $weight, $height, $systolicBP, $diastolicBP, $temp);
+            }
+            else if(isset($_POST['deleteMeasurement']))
+            {
+                $measureId = filter_input(INPUT_POST, 'patientMeasurementId');
+                $results = deleteMeasurement($measureId);
+            }
         }
     }
+
 }
+if(isset($results))
+    header("Location: ../Week5/viewPatients.php");
 
 ?>
 <html lang="en">
@@ -159,7 +171,7 @@ if(isset($_POST['action'])){
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Add Measurements</button>
+                    <button type="submit" class="btn btn-default" name="btnAddMeasure">Add Measurements</button>
                     <?php
                     if (isPostRequest()) {
                         echo $results;
@@ -183,6 +195,7 @@ if(isset($_POST['action'])){
                     <th>Height</th>
                     <th>Blood Pressure</th>
                     <th>Temperature</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -196,6 +209,15 @@ if(isset($_POST['action'])){
                             <td><?= $row['patientHeight'];?></td>
                             <td><?= $row['patientBPSystolic'];?>/<?= $row['patientBPDiastolic'];?></td>
                             <td><?= $row['patientTemperature'];?></td>
+                            <td>
+                            <form method="post" action="addPatient.php">
+                                <input type="hidden" name="patientMeasurementId" value="<?=$row['patientMeasurementId'];?>" />
+                                <input type="hidden" name="action" value="<?=$action;?>" />
+                                <input type="hidden" name="type" value="measurement" />
+                            
+                                <button class="btn glyphicon glyphicon-trash" name="deleteMeasurement" type="submit"></button>
+                            </form>  
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     <?php endif; ?>

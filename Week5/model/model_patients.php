@@ -140,4 +140,19 @@
         
         return ($results);
     }
+    function deleteMeasurement ($measureId) {
+        global $db;
+        
+        $results = "Data was not deleted";
+
+        $stmt = $db->prepare("DELETE FROM patientMeasurements WHERE patientMeasurementId=:id");
+        
+        $stmt->bindValue(':id', $measureId);
+            
+        if ($stmt->execute() && $stmt->rowCount() > 0) {
+            $results = 'Data Deleted';
+        }
+        
+        return ($results);
+    }
     
