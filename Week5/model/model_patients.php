@@ -63,7 +63,7 @@
 
         $stmt = $db->prepare("SELECT patientMeasurementId, patientId, patientMeasurementDate, patientWeight, patientHeight,
          patientBPSystolic,patientBPDiastolic, patientTemperature
-        FROM patientMeasurements WHERE patientId=:id SORTBY patientMeasurementDate"); 
+         FROM patientMeasurements WHERE patientId=:id SORTBY patientMeasurementDate"); 
 
         $stmt->bindValue(':id', $id);
         
@@ -77,8 +77,8 @@
     function addResults ($id, $weight, $height, $systolicBP, $diastolicBP, $temp) {
         global $db;
         $results = 'Data NOT Added';
-        $stmt = $db->prepare("INSERT INTO patientMeasurements SET patientID = :id, patientMeasurementDate = :today, patientWeight = :patientWeight, patientHeight = :patientHeight,
-         patientBPSystolic = :patientBPSystolic, patientBPDiastolic = : patientBPDiastolic, patientTemperature = :patientTemperature");
+        $stmt = $db->prepare("INSERT INTO patientMeasurements SET patientID = :id, patientMeasurementDate = :today, patientWeight = :patientWeight, patientHeight = :patientHeight,".
+         " patientBPSystolic = :patientBPSystolic, patientBPDiastolic = :patientBPDiastolic, patientTemperature = :patientTemperature");
 
         $today = date('Y-m-d');
 
@@ -89,8 +89,7 @@
         $stmt->bindValue(':patientBPSystolic', $systolicBP);
         $stmt->bindValue(':patientBPDiastolic', $diastolicBP);
         $stmt->bindValue(':patientTemperature', $temp);
-        
-            
+
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Data Added';
         }

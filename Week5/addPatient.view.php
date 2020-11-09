@@ -25,37 +25,38 @@ else {
 if(isset($_POST['action'])){
     $action = filter_input(INPUT_POST, 'action');
     $type = filter_input(INPUT_POST, 'type');
-}
-else if(isPostRequest() && $type == "patient")
-{
-    $fName = filter_input(INPUT_POST, 'firstName');
-    $lName = filter_input(INPUT_POST, 'lastName');
-    $married = filter_input(INPUT_POST, 'married');
-    $bDay = filter_input(INPUT_POST, 'birthDate');
+    if(isPostRequest() && $type == "patient")
+    {
+        $fName = filter_input(INPUT_POST, 'firstName');
+        $lName = filter_input(INPUT_POST, 'lastName');
+        $married = filter_input(INPUT_POST, 'married');
+        $bDay = filter_input(INPUT_POST, 'birthDate');
 
-    if($action == "add")
-    {
-        addPatient($fName, $lName, $married, $bDay);
+        if($action == "add")
+        {
+            $results = addPatient($fName, $lName, $married, $bDay);
+        }
+        else if($action == "edit")
+        {
+            $id = filter_input(INPUT_POST, 'id');
+            $results = updatePatient($id, $fName, $lName, $married, $bDay);
+        }
     }
-    else if($action == "edit")
+    else if(isPostRequest() && $type == "measurement")
     {
-        $id = filter_input(INPUT_POST, 'id');
-        updatePatient($id, $fName, $lName, $married, $bDay);
+        if($action == "edit")
+        {
+            $id = filter_input(INPUT_POST, 'id');
+            $weight = filter_input(INPUT_POST, 'weight');
+            $height = filter_input(INPUT_POST, 'height');
+            $systolicBP = filter_input(INPUT_POST, 'systolicBP');
+            $diastolicBP = filter_input(INPUT_POST, 'diastolicBP');
+            $temp = filter_input(INPUT_POST, 'temp');
+            $results = addResults($id, $weight, $height, $systolicBP, $diastolicBP, $temp);
+        }
     }
 }
-else if(isPostRequest() && $type == "measurement")
-{
-    if($action == "edit")
-    {
-        $id = filter_input(INPUT_POST, 'id');
-        $weight = filter_input(INPUT_POST, 'weight');
-        $height = filter_input(INPUT_POST, 'height');
-        $systolicBP = filter_input(INPUT_POST, 'systolicBP');
-        $diastolicBP = filter_input(INPUT_POST, 'diastolicBP');
-        $temp = filter_input(INPUT_POST, 'temp');
-        addResults($id, $weight, $height, $systolicBP, $diastolicBP, $temp);
-    }
-}
+var_dump($results)
 
 ?>
 <html lang="en">
@@ -111,7 +112,7 @@ else if(isPostRequest() && $type == "measurement")
                     <button type="submit" class="btn btn-default">Add Patient</button>
                     <?php
                     if (isPostRequest()) {
-                        echo "Patient added";
+                        echo $results;
                     }
                     ?>
                 </div>
@@ -157,7 +158,7 @@ else if(isPostRequest() && $type == "measurement")
                     <button type="submit" class="btn btn-default">Add Measurements</button>
                     <?php
                     if (isPostRequest()) {
-                        echo "Patient added";
+                        echo $results;
                     }
                     ?>
                 </div>
