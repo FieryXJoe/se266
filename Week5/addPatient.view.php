@@ -2,13 +2,59 @@
 
 include __DIR__ . '/model/model_patients.php';
 include __DIR__ . '/functions.php';
-if (isPostRequest()) {
-    $first = filter_input(INPUT_POST, 'firstName');
-    $last = filter_input(INPUT_POST, 'lastName');
+
+if(isset($_GET['id']))
+{
+    $id = filter_input(INPUT_GET, 'id');
+    $action = filter_input(INPUT_GET, 'action');
+    $row = getPatient($id);
+    $fName = $row[0]['patientFirstName'];
+    $lName = $row[0]['patientLastName'];
+    $married = $row[0]['patientMarried'];
+    $bDay = $row[0]['patientBirthDate'];
+}
+else {
+    $id = "";
+    $action = filter_input(INPUT_GET, 'action');
+    $fName = "";
+    $lName = "";
+    $married = 0;
+    $bDay = "";
+}
+
+if(isset($_POST['action'])){
+    $action = filter_input(INPUT_POST, 'action');
+    $type = filter_input(INPUT_POST, 'type');
+}
+else if(isPostRequest() && $type == "patient")
+{
+    $fName = filter_input(INPUT_POST, 'firstName');
+    $lName = filter_input(INPUT_POST, 'lastName');
     $married = filter_input(INPUT_POST, 'married');
     $bDay = filter_input(INPUT_POST, 'birthDate');
 
-    $result = addPatient($first, $last, $married, $bDay);
+    if($action == "add")
+    {
+        addPatient($fName, $lName, $married, $bDay);
+    }
+    else if($action == "edit")
+    {
+        $id = filter_input(INPUT_POST, 'id');
+        updatePatient($id, $fName, $lName, $married, $bDay);
+    }
+}
+else if(isPostRequest() && $type == "measurement")
+{
+    if($action == "edit")
+    {
+        $id = filter_input(INPUT_POST, 'id');
+        $weight = filter_input(INPUT_POST, 'weight');
+        $height = filter_input(INPUT_POST, 'height');
+        $systolicBP = filter_input(INPUT_POST, 'systolicBP');
+        $diastolicBP = filter_input(INPUT_POST, 'diastolicBP');
+        $temp = filter_input(INPUT_POST, 'temp');
+        addResults($id, $weight, $height, $systolicBP, $diastolicBP, $temp);
+    }
 }
 
 ?>
@@ -31,30 +77,33 @@ if (isPostRequest()) {
     </ul>
     <div class="container">
         <h2>Add Patients</h2>
-        <form class="form-horizontal" action="addPatient.php" method="post">
+        <form class="form-horizontal" action="addPatient.php?type=patient" method="post">
+            <input type="text" name="action" value="<?=$action;?>" hidden>
+            <input type="text" name="id" value="<?=$id;?>" hidden> 
+            <input type="text" name="type" value="patient" hidden> 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="first name">First Name:</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="firstName" placeholder="Enter patient first name" name="firstName">
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter patient first name" name="firstName" value="<?=$fName?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="last name">Last Name:</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="lastName" placeholder="Enter patient last name" name="lastName">
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter patient last name" name="lastName" value="<?=$lName?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="last name">Married:</label>
                 <div class="col-sm-10">
-                    <input type="radio" name="married" value="1">Yes
-                    <input type="radio" name="married" value="0" checked="">No
+                    <input type="radio" name="married" value="1" <?=$married==1?"checked":""?>>Yes
+                    <input type="radio" name="married" value="0" <?=$married==0?"checked":""?>>No
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="dob">Birth Date:</label>
                 <div class="col-sm-10">
-                    <input id="birthDate" type="date" name="birthDate" />
+                    <input id="birthDate" type="date" name="birthDate" value="<?=$bDay?>"/>
                 </div>
             </div>
             <div class="form-group">
@@ -70,8 +119,11 @@ if (isPostRequest()) {
         </form>
         <br />
         <br />
-        <h2>Patient Measurements</h2>
-        <form class="form-horizontal" action="addPatient.php" method="post">
+        <form class="form-horizontal" action="addPatient.php?type=measurements" method="post" <?=$action=="edit"?"":"hidden"?>>
+            <h2>Patient Measurements</h2>
+            <input type="text" name="action" value="<?=$action;?>" hidden>
+            <input type="text" name="id" value="<?=$id;?>" hidden> 
+            <input type="text" name="type" value="measurement" hidden> 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="height">Height:</label>
                 <div class="col-sm-1">

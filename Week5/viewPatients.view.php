@@ -39,12 +39,12 @@
                         <td><?= $row['patientBirthDate'];?></td>
                         <td><?= calcAge($row['patientBirthDate'])->format("%y Years");?></td>
                         <td><?= $row['patientMarried']==1?"Yes":"No";?></td>
-                        <td><a class="editLink" href="addPatient.php?id=<?=$row['id']?>">Edit</a></td>
+                        <td><a class="editLink" href="addPatient.php?id=<?=$row['id']?>&action=edit">Edit</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <br />
-            <a href="addPatient.php" id="addBtn">Add Patient</a>
+            <a href="addPatient.php?action=add" id="addBtn">Add Patient</a>
     </body>
 </html>

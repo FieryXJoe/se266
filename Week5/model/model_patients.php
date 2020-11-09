@@ -97,7 +97,7 @@
         
         return ($results);
     }
-    function updatePatient($id, $first, $last, $married, $birthDate, $weight, $height, $systolicBP, $diastolicBP, $temp) {
+    function updatePatient($id, $first, $last, $married, $birthDate) {
         global $db;
 
         $results = "";
@@ -114,24 +114,6 @@
       
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Data Updated';
-        }
-
-        $stmt = $db->prepare("UPDATE patients SET patientID = :id, patientMeasurementDate = :today, patientWeight = :patientWeight, patientHeight = :patientHeight,
-        patientBPSystolic = :patientBPSystolic, patientBPDiastolic = : patientBPDiastolic, patientTemperature = :patientTemperature WHERE id=:id");
-        
-        $today = date('Y-m-d');
-
-        $stmt->bindValue(':id', $id);
-        $stmt->bindValue(':today', $today);
-        $stmt->bindValue(':patientWeight', $weight);
-        $stmt->bindValue(':patientHeight', $height);
-        $stmt->bindValue(':patientBPSystolic', $systolicBP);
-        $stmt->bindValue(':patientBPDiastolic', $diastolicBP);
-        $stmt->bindValue(':patientTemperature', $temp);
-
-      
-        if ($stmt->execute() && $stmt->rowCount() > 0) {
-            $results .= '<br />Data Updated';
         }
         
         return ($results);
