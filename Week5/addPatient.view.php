@@ -34,13 +34,13 @@ if (isPostRequest()) {
         <form class="form-horizontal" action="addPatient.php" method="post">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="first name">First Name:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="text" class="form-control" id="firstName" placeholder="Enter patient first name" name="firstName">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="last name">Last Name:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="text" class="form-control" id="lastName" placeholder="Enter patient last name" name="lastName">
                 </div>
             </div>
@@ -80,7 +80,7 @@ if (isPostRequest()) {
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="weight">Weight:</label>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="weight" maxlength="6" placeholder="Pounds" name="weight">
                 </div>
             </div>
