@@ -40,7 +40,10 @@ if(isset($_POST['action'])){
         else if($action == "edit")
         {
             $id = filter_input(INPUT_POST, 'id');
-            $results = updatePatient($id, $fName, $lName, $married, $bDay);
+            if(isset($_POST['btnDelete']))
+                $results = deletePatient($id);
+            else 
+                $results = updatePatient($id, $fName, $lName, $married, $bDay);
         }
     }
     else if(isPostRequest() && $type == "measurement")
@@ -62,7 +65,7 @@ if(isset($_POST['action'])){
 <html lang="en">
 
 <head>
-    <title>Add Patient</title>
+    <title><?=ucWords($action);?> Patient</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -77,7 +80,7 @@ if(isset($_POST['action'])){
         <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
     </ul>
     <div class="container">
-        <h2>Add Patients</h2>
+        <h2><?=ucWords($action);?> Patient</h2>
         <form class="form-horizontal" action="addPatient.php?type=patient" method="post">
             <input type="text" name="action" value="<?=$action;?>" hidden>
             <input type="text" name="id" value="<?=$id;?>" hidden> 
@@ -109,7 +112,8 @@ if(isset($_POST['action'])){
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default"><?=ucWords($action);?> Patient</button>
+                    <button type="submit" name="btnSubmit" class="btn btn-default"><?=ucWords($action);?> Patient</button>
+                    <button type="submit" name="btnDelete" class="btn btn-default" <?=$action=="edit"?"":"hidden";?>>Delete Patient</button>
                     <?php
                     if (isPostRequest()) {
                         echo $results;
@@ -168,6 +172,7 @@ if(isset($_POST['action'])){
 
         <div class="col-sm-offset-2 col-sm-10"><a href="./viewPatients.php" id="viewPatientsBtn">View Patients</a></div>
         <br />
+        <h2 <?=$action=="edit"?"":"hidden";?>>Past Measurements</h2>
         <table class="table table-striped" id="formerResults" <?=$action=="edit"?"":"hidden";?>>
             <thead>
                 <tr>

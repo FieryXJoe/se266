@@ -130,7 +130,7 @@
             $results = 'Data Deleted';
         }
 
-        $stmt = $db->prepare("DELETE FROM patientMeasurements WHERE id=:id");
+        $stmt = $db->prepare("DELETE FROM patientMeasurements WHERE patientId=:id");
         
         $stmt->bindValue(':id', $id);
             
