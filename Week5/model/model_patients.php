@@ -63,7 +63,7 @@
 
         $stmt = $db->prepare("SELECT patientMeasurementId, patientId, patientMeasurementDate, patientWeight, patientHeight,
          patientBPSystolic,patientBPDiastolic, patientTemperature
-         FROM patientMeasurements WHERE patientId=:id SORTBY patientMeasurementDate"); 
+         FROM patientMeasurements WHERE patientId=:id ORDER BY patientMeasurementDate"); 
 
         $stmt->bindValue(':id', $id);
         
@@ -99,7 +99,7 @@
     function updatePatient($id, $first, $last, $married, $birthDate) {
         global $db;
 
-        $results = "";
+        $results = "Data NOT Updated";
         
         $stmt = $db->prepare("UPDATE patients SET patientFirstName = :patientFirstName,
         patientLastName = :patientLastName, patientMarried = :patientMarried, patientBirthDate = :patientBirthDate WHERE id=:id");

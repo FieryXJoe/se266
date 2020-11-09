@@ -12,6 +12,7 @@ if(isset($_GET['id']))
     $lName = $row[0]['patientLastName'];
     $married = $row[0]['patientMarried'];
     $bDay = $row[0]['patientBirthDate'];
+    $measurements = getPatientMeasurements($id);
 }
 else {
     $id = "";
@@ -56,7 +57,6 @@ if(isset($_POST['action'])){
         }
     }
 }
-var_dump($results)
 
 ?>
 <html lang="en">
@@ -85,31 +85,31 @@ var_dump($results)
             <div class="form-group">
                 <label class="control-label col-sm-2" for="first name">First Name:</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="firstName" placeholder="Enter patient first name" name="firstName" value="<?=$fName?>">
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter patient first name" name="firstName" value="<?=$fName;?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="last name">Last Name:</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="lastName" placeholder="Enter patient last name" name="lastName" value="<?=$lName?>">
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter patient last name" name="lastName" value="<?=$lName;?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="last name">Married:</label>
                 <div class="col-sm-10">
-                    <input type="radio" name="married" value="1" <?=$married==1?"checked":""?>>Yes
-                    <input type="radio" name="married" value="0" <?=$married==0?"checked":""?>>No
+                    <input type="radio" name="married" value="1" <?=$married==1?"checked":"";?>>Yes
+                    <input type="radio" name="married" value="0" <?=$married==0?"checked":"";?>>No
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="dob">Birth Date:</label>
                 <div class="col-sm-10">
-                    <input id="birthDate" type="date" name="birthDate" value="<?=$bDay?>"/>
+                    <input id="birthDate" type="date" name="birthDate" value="<?=$bDay;?>"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Add Patient</button>
+                    <button type="submit" class="btn btn-default"><?=ucWords($action);?> Patient</button>
                     <?php
                     if (isPostRequest()) {
                         echo $results;
@@ -120,7 +120,7 @@ var_dump($results)
         </form>
         <br />
         <br />
-        <form class="form-horizontal" action="addPatient.php?type=measurements" method="post" <?=$action=="edit"?"":"hidden"?>>
+        <form class="form-horizontal" action="addPatient.php?type=measurements" method="post" <?=$action=="edit"?"":"hidden";?>>
             <h2>Patient Measurements</h2>
             <input type="text" name="action" value="<?=$action;?>" hidden>
             <input type="text" name="id" value="<?=$id;?>" hidden> 
@@ -167,6 +167,35 @@ var_dump($results)
         <hr />
 
         <div class="col-sm-offset-2 col-sm-10"><a href="./viewPatients.php" id="viewPatientsBtn">View Patients</a></div>
+        <br />
+        <table class="table table-striped" id="formerResults" <?=$action=="edit"?"":"hidden";?>>
+            <thead>
+                <tr>
+                    <th>Measurement ID</th>
+                    <th>Patient ID</th>
+                    <th>Date Taken</th>
+                    <th>Weight</th>
+                    <th>Height</th>
+                    <th>Blood Pressure</th>
+                    <th>Temperature</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($measurements)) : ?>
+                    <?php foreach ($measurements as $row): ?>
+                        <tr>
+                            <td><?= $row['patientMeasurementId'];?></td>
+                            <td><?= $row['patientId'];?></td>
+                            <td><?= $row['patientMeasurementDate'];?></td>
+                            <td><?= $row['patientWeight'];?></td>
+                            <td><?= $row['patientHeight'];?></td>
+                            <td><?= $row['patientBPSystolic'];?>/<?= $row['patientBPDiastolic'];?></td>
+                            <td><?= $row['patientTemperature'];?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+            </tbody>
+        </table>
     </div>
 
 </body>
