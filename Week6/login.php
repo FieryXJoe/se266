@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
+        if($_POST['username'] == "donald" && $_POST['password'] == "duck") 
+            $_SESSION['loggedIn'] = "yes";
+    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes")
+        header("Location: logoff.php");
 ?>
 
 <html>
@@ -29,7 +35,7 @@
                 </div>
                 <div class="rowContainer">
                     <div class="col1"><b>User Name:</b></div>
-                    <div class="col2"><input type="text" name="userName" value="donald"></div> 
+                    <div class="col2"><input type="text" name="username" value="donald"></div> 
                 </div>
                 <div class="rowContainer">
                     <div class="col1"><b>Password:</b></div>
