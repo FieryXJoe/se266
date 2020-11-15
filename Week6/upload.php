@@ -7,6 +7,7 @@
         move_uploaded_file($tmp_name,$new_name);
         deleteAllSchools();
         insertSchoolsFromFile($new_name);
+        header("Location: search.php");
     }
 
 ?>

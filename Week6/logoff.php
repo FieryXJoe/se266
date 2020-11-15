@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="../style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>Schools Upload</title>
+        <title>Schools Logout</title>
     </head>
     <body data-new-gr-c-s-check-loaded="14.983.0" id="w6LoginPage">
         <ul>
