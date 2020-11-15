@@ -4,7 +4,10 @@
         if($_POST['username'] == "donald" && $_POST['password'] == "duck") 
             $_SESSION['loggedIn'] = "yes";
     if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes")
+    {
         header("Location: logoff.php");
+        session_destroy();
+    }
 ?>
 
 <html>
