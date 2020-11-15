@@ -1,9 +1,12 @@
 <?php
+    require "model/model_schools.php";
     if(isset($_FILES['file1'])){
         $tmp_name = $_FILES['file1']['tmp_name'];
         $path = getcwd() . DIRECTORY_SEPARATOR . 'uploads';
         $new_name = $path.DIRECTORY_SEPARATOR.$_FILES['file1']['name'];
         move_uploaded_file($tmp_name,$new_name);
+        deleteAllSchools();
+        insertSchoolsFromFile($new_name);
     }
 
 ?>
