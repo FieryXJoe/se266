@@ -5,7 +5,7 @@
             $_SESSION['loggedIn'] = "yes";
     if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes")
     {
-        header("Location: search.php");
+        header("Location: upload.php");
     }
 ?>
 

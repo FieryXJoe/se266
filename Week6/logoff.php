@@ -9,7 +9,8 @@
     }
     if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "no")
     {
-        header("Location: login.php");
+        session_destroy();
+        header("Location: http://se266-sherry-j-2020.herokuapp.com/");
     }
 ?>
 <html>
