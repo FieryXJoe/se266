@@ -5,8 +5,7 @@
             $_SESSION['loggedIn'] = "yes";
     if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes")
     {
-        header("Location: logoff.php");
-        session_destroy();
+        header("Location: search.php");
     }
 ?>
 
@@ -20,10 +19,6 @@
         <title>Schools Upload</title>
     </head>
     <body data-new-gr-c-s-check-loaded="14.983.0" id="w6LoginPage">
-        <ul>
-            <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
-            <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
-        </ul>
         <div class="mainDiv">
             <form method="post" action="login.php">
                 <div class="rowContainer">

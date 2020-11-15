@@ -8,10 +8,9 @@
         <title>Schools Search</title>
     </head>
     <body data-new-gr-c-s-check-loaded="14.983.0" id="w6LoginPage">
-        <ul>
-            <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
-            <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
-        </ul>
+        <?php
+            require "header.php";
+        ?>
         <div class="mainDiv">
             <form method="post" action="search.php">
                 <div class="rowContainer">
