@@ -24,6 +24,7 @@
             require "header.php";
         ?>
         <div class="mainDiv">
+            <h2><b class="schoolTitle">Please Upload Schools.csv</b></h2>
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>

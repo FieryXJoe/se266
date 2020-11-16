@@ -14,7 +14,7 @@
         <div class="mainDiv">
             <form method="post" action="search.php">
                 <div class="rowContainer">
-                    <h2><b>Search Schools</b></h2>
+                    <h2><b class="schoolTitle">Search Schools</b></h2>
                 </div>
                 &nbsp;
                 <div class="rowContainer">

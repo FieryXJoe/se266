@@ -3,6 +3,10 @@
     font-family: pixelFont;
     src: url(fonts/PixelFont.ttf);
 }
+@font-face {
+    font-family: markerFont;
+    src: url(fonts/Marker.ttf)
+}
 
 html{
     /*This was needed to get background to fill screen at all resolutions
@@ -19,7 +23,7 @@ body{
     -webkit-text-stroke-color: black;
     /*Trick from my HTML final to tint a background pattern*/
     background-image: url(images/HomeBg.jpg);
-    box-shadow: 0 3000px rgba(100,30,60,0.45) inset;
+    box-shadow: 30000px 30000px 30000px 30000px rgba(100,30,60,0.45) inset;
     
     height:100%;
 }
@@ -190,3 +194,8 @@ hr{
 .col2 {float: left;}
 .rowContainer {clear: left; height: 40px;}
 .error {margin-left: 100px; clear: left; height: 40px; color: red;}
+
+#searchTitle
+{
+    font-family:markerFont;
+}
