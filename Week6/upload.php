@@ -5,7 +5,6 @@
         $path = getcwd() . DIRECTORY_SEPARATOR . 'uploads';
         $new_name = $path.DIRECTORY_SEPARATOR.$_FILES['file1']['name'];
         move_uploaded_file($tmp_name,$new_name);
-        deleteAllSchools();
         insertSchoolsFromFile($new_name);
         header("Location: search.php");
     }

@@ -46,6 +46,7 @@
                         if(isset($_POST['schoolName']) || isset($_POST['city']) || isset($_POST['state']))
                         {
                             $schools = getSchools($_POST['schoolName'], $_POST['city'], $_POST['state']);
+                            echo "Found " . count($schools) . " Schools";
                             echo "<table>";
                                 echo "<tr>";
                                     echo "<th>Name</th>";
