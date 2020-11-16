@@ -5,7 +5,7 @@
 }
 @font-face {
     font-family: markerFont;
-    src: url(fonts/Marker.ttf)
+    src: url(fonts/Marker.ttf);
 }
 
 html{
