@@ -21,7 +21,7 @@
                     <div class="col1" style='font-family:itimFont;font-size:22px;'><b>School Name:</b></div>
                     <div class="col2"><input type="text" name="schoolName" style='font-family:itimFont;font-size:22px;'></div> 
                 </div>
-                &nbsp;&nbsp;
+                <br /><br />
                 <div class="rowContainer">
                     <div class="col1" style='font-family:itimFont;font-size:22px;'><b>City:</b></div>
                     <div class="col2"><input type="text" name="city" style='font-family:itimFont;font-size:22px;'></div> 
