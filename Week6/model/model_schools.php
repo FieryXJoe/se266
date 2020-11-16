@@ -68,6 +68,8 @@
            $binds['state'] = '%'.$state.'%';
        }
        
+       $sql .= " ORDER BY schoolName ASC";
+
        $stmt = $db->prepare($sql);
       
         $results = array();
