@@ -2,7 +2,7 @@
     require "model/model_schools.php";
     session_start();
     if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
-        if ($_POST['username'] == "donald" && $_POST['password'] == "duck")
+        if (checkLogin($_POST['username'],$_POST['password']))
             $_SESSION['loggedIn'] = "yes";
     if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes") {
         deleteAllSchools();
