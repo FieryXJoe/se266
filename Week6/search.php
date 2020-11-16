@@ -18,17 +18,17 @@
                 </div>
                 &nbsp;
                 <div class="rowContainer">
-                    <div class="col1"><b>School Name:</b></div>
+                    <div class="col1" style='font-family:itimFont;'><b>School Name:</b></div>
                     <div class="col2"><input type="text" name="schoolName" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
                 <div class="rowContainer">
-                    <div class="col1"><b>City:</b></div>
+                    <div class="col1" style='font-family:itimFont;'><b>City:</b></div>
                     <div class="col2"><input type="text" name="city" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
                 <div class="rowContainer">
-                    <div class="col1"><b>State:</b></div>
+                    <div class="col1" style='font-family:itimFont;'><b>State:</b></div>
                     <div class="col2"><input type="text" name="state" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
