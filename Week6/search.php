@@ -46,8 +46,8 @@
                         if(isset($_POST['schoolName']) || isset($_POST['city']) || isset($_POST['state']))
                         {
                             $schools = getSchools($_POST['schoolName'], $_POST['city'], $_POST['state']);
-                            echo "<div style='font-family:itimFont;'>Found " . count($schools) . " Schools</div>";
-                            echo "<table style='font-family:itimFont;'>";
+                            echo "<div style='font-family:itimFont;font-size:22px;'>Found " . count($schools) . " Schools</div>";
+                            echo "<table style='font-family:itimFont;font-size:22px;'>";
                                 echo "<tr>";
                                     echo "<th>Name</th>";
                                     echo "<th>City</th>";
