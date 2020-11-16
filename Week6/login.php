@@ -1,11 +1,13 @@
 <?php
-session_start();
-if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
-    if ($_POST['username'] == "donald" && $_POST['password'] == "duck")
-        $_SESSION['loggedIn'] = "yes";
-if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes") {
-    header("Location: upload.php");
-}
+    require "model/model_schools.php";
+    session_start();
+    if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
+        if ($_POST['username'] == "donald" && $_POST['password'] == "duck")
+            $_SESSION['loggedIn'] = "yes";
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == "yes") {
+        deleteAllSchools();
+        header("Location: upload.php");
+    }
 ?>
 
 <html>
