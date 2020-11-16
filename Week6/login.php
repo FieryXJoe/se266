@@ -27,7 +27,7 @@
     </ul>
     <form method="post" action="login.php">
         <div class="rowContainer">
-            <h2><b>Please Login</b></h2>
+            <h2><b class="schoolTitle">Please Login</b></h2>
         </div>
         <div class="rowContainer">
             <div class="col1"><b>User Name:</b></div>
