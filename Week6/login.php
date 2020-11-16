@@ -42,6 +42,9 @@
             <div class="col2"><input type="submit" name="login" value="Login" class="btn btn-dark"></div>
         </div>
     </form>
+    <?php
+        require "footer.php";
+    ?>
 </body>
 
 </html>
