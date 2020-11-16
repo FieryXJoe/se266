@@ -28,13 +28,13 @@
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>
-                        <td><input type="file" name="file1"></td>
-                        <td><input type="submit" name="upload" value="Upload" style="font-weight:bolder"></td>
+                        <td><input type="file" name="file1" style='font-size:20px;font-family:itimFont;'></td>
+                        <td><input type="submit" name="upload" value="Upload" style="font-weight:bolder; font-family:itimFont;"></td>
                     </tr>
                 </table>
                 <?php
                     if(isset($_FILES['file1']))
-                        echo "File Uploaded!";
+                        echo "<div id = 'font-family:itimFont;'>File Uploaded!</div>";
                 ?>
             </form>
         </div>

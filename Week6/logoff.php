@@ -29,7 +29,7 @@
         <div class="mainDiv">
             <h2><b class="schoolTitle">Would you like to log out</b></h2>
             <form method="post" action="logoff.php">
-                <input type="submit" name="logoff" value="Logoff" class="btn btn-dark">
+                <input type="submit" name="logoff" value="Logoff" class="btn btn-dark" style='font-family:itimFont;'>
             </form>
         </div>
         <?php

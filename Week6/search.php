@@ -19,22 +19,22 @@
                 &nbsp;
                 <div class="rowContainer">
                     <div class="col1"><b>School Name:</b></div>
-                    <div class="col2"><input type="text" name="schoolName"></div> 
+                    <div class="col2"><input type="text" name="schoolName" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
                 <div class="rowContainer">
                     <div class="col1"><b>City:</b></div>
-                    <div class="col2"><input type="text" name="city"></div> 
+                    <div class="col2"><input type="text" name="city" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
                 <div class="rowContainer">
                     <div class="col1"><b>State:</b></div>
-                    <div class="col2"><input type="text" name="state"></div> 
+                    <div class="col2"><input type="text" name="state" style='font-family:itimFont;'></div> 
                 </div>
                 &nbsp;
                 <div class="rowContainer">
                     <div class="col1">&nbsp;</div>
-                    <div class="col2"><input type="submit" name="search" value="Search" class="btn btn-dark"></div> 
+                    <div class="col2"><input type="submit" name="search" value="Search" class="btn btn-dark" style='font-family:itimFont;'></div> 
                 </div>
             </form>
             <?php
@@ -46,8 +46,8 @@
                         if(isset($_POST['schoolName']) || isset($_POST['city']) || isset($_POST['state']))
                         {
                             $schools = getSchools($_POST['schoolName'], $_POST['city'], $_POST['state']);
-                            echo "Found " . count($schools) . " Schools";
-                            echo "<table>";
+                            echo "<div style='font-family:itimFont;'>Found " . count($schools) . " Schools</div>";
+                            echo "<table style='font-family:itimFont;'>";
                                 echo "<tr>";
                                     echo "<th>Name</th>";
                                     echo "<th>City</th>";

@@ -7,6 +7,10 @@
     font-family: markerFont;
     src: url(fonts/Marker.ttf);
 }
+@font-face {
+    font-family: itimFont;
+    src: url(fonts/Itim.ttf);
+}
 
 html{
     /*This was needed to get background to fill screen at all resolutions

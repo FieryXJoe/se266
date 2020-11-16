@@ -30,16 +30,16 @@
             <h2><b class="schoolTitle">Please Login</b></h2>
         </div>
         <div class="rowContainer">
-            <div class="col1"><b>User Name:</b></div>
+            <div class="col1"><b style='font-family:itimFont;'>User Name:</b></div>
             <div class="col2"><input type="text" name="username" value="donald"></div>
         </div>
         <div class="rowContainer">
-            <div class="col1"><b>Password:</b></div>
+            <div class="col1"><b style='font-family:itimFont;'>Password:</b></div>
             <div class="col2"><input type="password" name="password" value="duck"></div>
         </div>
         <div class="rowContainer">
             <div class="col1">&nbsp;</div>
-            <div class="col2"><input type="submit" name="login" value="Login" class="btn btn-dark"></div>
+            <div class="col2"><input type="submit" name="login" value="Login" class="btn btn-dark" style='font-family:itimFont;'></div>
         </div>
     </form>
     <?php
