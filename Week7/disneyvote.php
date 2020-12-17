@@ -16,6 +16,10 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     </head>
     <body id="disneyvote">
+        <ul>
+            <li><a href="http://se266-sherry-j-2020.herokuapp.com/">Home</a></li>
+            <li><a href="http://se266-sherry-j-2020.herokuapp.com/otherWork.html">Other Work</a></li>
+        </ul>
         <div style="margin-left:50px; margin-top:50px;">
             <table id = "disneychars">
                 <tr id="disneyimages">
